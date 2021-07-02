@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
+import { Grid, Typography, Paper, makeStyles, Button } from '@material-ui/core';
 
 import { SocketContext } from '../SocketContext';
 
@@ -43,9 +43,26 @@ const VideoPlayer = () => {
             <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
             <video playsInline ref={userVideo} autoPlay className={classes.video} />
           </Grid>
+          <Grid item xs={12} md={6}>
+        <Button variant="outlined">Default</Button>
+        <Button variant="outlined" color="primary">
+          Primary
+        </Button>
+        <Button variant="outlined" color="secondary">
+          Secondary
+        </Button>
+        <Button variant="outlined" disabled>
+          Disabled
+        </Button>
+        <Button variant="outlined" color="primary" href="#outlined-buttons">
+          Link
+        </Button>
+      </Grid>
         </Paper>
       )}
+      
     </Grid>
+    
   );
 };
 

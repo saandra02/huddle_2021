@@ -79,6 +79,26 @@ const ContextProvider = ({ children }) => {
     window.location.reload();
   };
 
+  const muteMic = (e) => {
+    console.log("I am here in mute mic");
+    if(e.target.innerHTML==="Mute Audio"){
+      e.target.innerHTML = "Unmute Audio";
+    } else {
+      e.target.innerHTML = "Mute Audio";
+    }
+    stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
+  }
+  
+  const muteCam = (e) => {
+    console.log("I am here in mute cam");
+    if(e.target.innerHTML==="Mute Video"){
+      e.target.innerHTML = "Unmute Video";
+    } else {
+      e.target.innerHTML = "Mute Video";
+    }
+    stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
+  }
+
   return (
     <SocketContext.Provider value={{
       call,
@@ -93,6 +113,8 @@ const ContextProvider = ({ children }) => {
       callUser,
       leaveCall,
       answerCall,
+      muteMic,
+      muteCam
     }}
     >
       {children}
