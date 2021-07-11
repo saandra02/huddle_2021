@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Grid, Typography, Paper, makeStyles, Button } from '@material-ui/core';
+import { Grid, Typography, Paper, makeStyles} from '@material-ui/core';
 
 import { SocketContext } from '../SocketContext';
 
 const useStyles = makeStyles((theme) => ({
   video: {
-    width: '550px',
+    width: '530px',
     [theme.breakpoints.down('xs')]: {
       width: '300px',
     },
@@ -20,11 +20,13 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px',
     border: '2px solid black',
     margin: '10px',
+    width: '555px',
   },
+
 }));
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+  const { name, setName, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
   const classes = useStyles();
 
   return (
@@ -32,7 +34,7 @@ const VideoPlayer = () => {
       {stream && (
         <Paper className={classes.paper}>
           <Grid item xs={12} md={6}>
-            <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
+            <input type="text" className = "name-box" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)}></input>
             <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
           </Grid>
         </Paper>
@@ -43,21 +45,6 @@ const VideoPlayer = () => {
             <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
             <video playsInline ref={userVideo} autoPlay className={classes.video} />
           </Grid>
-          <Grid item xs={12} md={6}>
-        <Button variant="outlined">Default</Button>
-        <Button variant="outlined" color="primary">
-          Primary
-        </Button>
-        <Button variant="outlined" color="secondary">
-          Secondary
-        </Button>
-        <Button variant="outlined" disabled>
-          Disabled
-        </Button>
-        <Button variant="outlined" color="primary" href="#outlined-buttons">
-          Link
-        </Button>
-      </Grid>
         </Paper>
       )}
       

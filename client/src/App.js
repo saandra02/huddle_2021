@@ -1,53 +1,29 @@
-import React from 'react';
-import { Typography, AppBar } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import Header from './components/Header';
+import SubHeader from './components/Subheader';
+import VideoCallGuest from './components/VideoCallGuest';
+import Chats from './components/Chats';
+import SignUpForm from './components/SignUpForm';
 
-import VideoPlayer from './components/VideoPlayer';
-import Options from './components/Options';
-import Notifications from './components/Notifications';
-import VideoOptions from './components/VideoOptions';
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    borderRadius: 15,
-    margin: '30px 100px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '600px',
-    border: '2px solid black',
-
-    [theme.breakpoints.down('xs')]: {
-      width: '90%',
-    },
-  },
-  image: {
-    marginLeft: '15px',
-  },
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '100%',
-  },
-}));
-
-const App = () => {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.wrapper}>
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant="h2" align="center">Video Chat</Typography>
-      </AppBar>
-      <VideoPlayer />
-      <VideoOptions/>
-      <Options>
-        <Notifications />
-      </Options>
-    </div>
-  );
-};
+class App extends Component{
+  
+  render(){
+    return(
+      <BrowserRouter>
+        <div>
+          <Header/>
+          <SubHeader/>
+          <Route exact path='/' component ={LoginForm}/>
+          <Route exact path ='/video' component={VideoCallGuest}/>
+          <Route exact path = '/chats' component={Chats}/>
+          <Route exact path = '/signup' component={SignUpForm}/>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 
 export default App;
