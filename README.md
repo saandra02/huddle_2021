@@ -11,6 +11,7 @@ The frontend was made entirely in React JS.
 
 ### Setting up the backend
 Requirement: Node.js
+
 Libraries required: cors, express, nodemon, simple-peer, socket.io
 
 To run the backend, use the command `nodemon index.js`. If you are running the backend locally make sure to change the io() to localhost:5000 (or the appropriate port) in SocketContext.js 
