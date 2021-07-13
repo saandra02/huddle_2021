@@ -2,14 +2,14 @@ import { ChatEngine } from 'react-chat-engine';
 import ChatHeaderCustom from './ChatHeader.js';
 
 function Chats() {
-    if(!localStorage.getItem('username')){
-      window.location.href = '/';
+    if(!sessionStorage.getItem('username')){
+      window.location.href = '/#/';
       return <div/>;
     }
     function LogOut (){
       sessionStorage.removeItem("username");
       sessionStorage.removeItem("password");
-      window.location.href = '/';
+      window.location.href = '/#/';
     }
     return(
     <div className="chat-container">

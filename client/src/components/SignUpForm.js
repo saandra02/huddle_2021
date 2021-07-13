@@ -36,7 +36,7 @@ const SignUpForm = () => {
     }
 
     function handleLogin(){
-        window.location.href = "/";
+        window.location.href = "/#/";
     }
 
     return (

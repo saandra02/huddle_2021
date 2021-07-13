@@ -19,7 +19,7 @@ const LoginForm = () => {
 
             sessionStorage.setItem('username', username);
             sessionStorage.setItem('password', password);
-            window.location.href='/chats';
+            window.location.href='/#/chats';
 
         } catch(error){
 
@@ -31,12 +31,12 @@ const LoginForm = () => {
 
     const handleGuest = (e) =>{
         e.preventDefault();
-        window.location.href = '/video';
+        window.open('/#/video', '_blank');
     }
 
     const handleSignUp = (e) =>{
         e.preventDefault();
-        window.location.href = '/signup';
+        window.location.href = '/#/signup';
     }
 
     return (

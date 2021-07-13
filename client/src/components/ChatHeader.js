@@ -10,7 +10,7 @@ class ChatHeaderCustom extends Component {
 
     HandleClick = () =>{
         if(this.props.people.length === 2){
-            window.open('/video', '_blank');
+            window.open('/#/video', '_blank');
         } else {
             alert("Video call is currently supported only for two participants!");  
         }

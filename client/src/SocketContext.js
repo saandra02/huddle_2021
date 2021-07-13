@@ -20,7 +20,8 @@ const ContextProvider = ({ children }) => {
   const connectionRef = useRef();
 
   useEffect(() => {
-    if(window.location.pathname==="/video"){
+    if(window.location.hash==="#/video"){
+    console.log("I am in the if clause");
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);

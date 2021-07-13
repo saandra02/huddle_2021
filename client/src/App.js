@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import {HashRouter as Router, Route,} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import Header from './components/Header';
 import SubHeader from './components/Subheader';
@@ -12,7 +12,7 @@ class App extends Component{
   
   render(){
     return(
-      <BrowserRouter>
+      <Router>
         <div>
           <Header/>
           <SubHeader/>
@@ -21,7 +21,7 @@ class App extends Component{
           <Route exact path = '/chats' component={Chats}/>
           <Route exact path = '/signup' component={SignUpForm}/>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
